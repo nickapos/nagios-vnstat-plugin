@@ -1,4 +1,5 @@
-#~/bin/bash
+#!/bin/bash
+
 vnstat_output="$(vnstat|grep estimated)"
 
 #argument order -M monthly/daily -R receive/transmit 
