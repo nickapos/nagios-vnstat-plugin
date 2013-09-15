@@ -50,7 +50,7 @@ exit 0
 if [[ -z $MON_DAI ]] || [[ -z $REC_TRA ]]
 then 
     echo "Please provide arguments for both -M and -R options"
-    exit 1 
+    exit 3 
 #monthly receive
 elif [ "$MON_DAI" = "M" ] && [ "$REC_TRA" = "R" ]
 then
@@ -73,7 +73,7 @@ then
     exit 0
 else
     echo "The acceptable arguments for -M is M or D and -R is R or T"
-    exit 0
+    exit 3
 fi
 
 

@@ -1,0 +1,4 @@
+This is an atetmpt to create a small nagios plugin based on the vnstat utility.
+
+It is consisted of two scripts, the first is the parser of vnstat output and
+the second is the one that defines the various nagios states
