@@ -54,7 +54,7 @@ then
 #monthly receive
 elif [ "$MON_DAI" = "M" ] && [ "$REC_TRA" = "R" ]
 then
-    echo $monthlyIncoming displayUnits $monthlyIncomingGrade
+    echo $monthlyIncoming `displayUnits $monthlyIncomingGrade`
     exit 0
 #daily reveice
 elif [ "$MON_DAI" = "D" ] && [ "$REC_TRA" = "R" ]
