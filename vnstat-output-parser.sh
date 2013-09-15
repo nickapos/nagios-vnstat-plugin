@@ -1,21 +1,21 @@
 #~/bin/bash
-
+vnstat_output=`vnstat|grep estimated`
 #argument order -M monthly/daily -R receive/transmit 
-monthlyIncoming=`vnstat |grep estimated|awk  '{print $2}'|head -1`
-monthlyIncomingGrade=`vnstat |grep estimated|awk  '{print $3}'|head -1`
+monthlyIncoming=$(echo $vnstat_output|awk  '{print $2}'|head -1)
+monthlyIncomingGrade=$(echo $vnstat_output|awk  '{print $3}'|head -1)
 #echo "monthly average incoming " $monthlyIncoming $monthlyIncomingGrade
 
-monthlyTransmitting=`vnstat |grep estimated|awk  '{print $5}'|head -1`
-monthlyIncomingGrade=`vnstat |grep estimated|awk  '{print $6}'|head -1`
+monthlyTransmitting=$(echo $vnstat_output|awk  '{print $5}'|head -1)
+monthlyTransmittingGrade=$(echo $vnstat_output|awk  '{print $6}'|head -1)
 #echo "monthly average transmitting " $monthlyTransmitting $monthlyIncomingGrade
 
 
-dailyIncoming=`vnstat |grep estimated|awk  '{print $2}'|tail -1`
-dailyIncomingGrade=`vnstat |grep estimated|awk  '{print $3}'|tail -1`
+dailyIncoming=$(echo $vnstat_output|awk  '{print $2}'|tail -1)
+dailyIncomingGrade=$(echo $vnstat_output|awk  '{print $3}'|tail -1)
 #echo "daily incoming average " $dailyIncoming $dailyIncomingGrade
 
-dailyTransmitting=`vnstat |grep estimated|awk  '{print $5}'|tail -1`
-dailyTransmittingGrade=`vnstat |grep estimated|awk  '{print $3}'|tail -1`
+dailyTransmitting=$(echo $vnstat_output|awk  '{print $5}'|tail -1)
+dailyTransmittingGrade=$(echo $vnstat_output|awk  '{print $3}'|tail -1)
 #echo "daily transmitting averate " $dailyTransmitting $dailyTransmittingGrade
 
 
