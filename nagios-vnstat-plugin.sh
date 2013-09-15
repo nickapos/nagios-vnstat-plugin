@@ -59,17 +59,17 @@ then
 #daily reveice
 elif [ "$MON_DAI" = "D" ] && [ "$REC_TRA" = "R" ]
 then
-    echo $dailyIncoming displayUnits $dailyIncomingGrade
+    echo $dailyIncoming `displayUnits $dailyIncomingGrade`
     exit 0
 #daily transmit
 elif [ "$MON_DAI" = "D" ] && [ "$REC_TRA" = "T" ]
 then
-    echo $dailyTransmitting displayUnits $dailyTransmittingGrade
+    echo $dailyTransmitting `displayUnits $dailyTransmittingGrade`
     exit 0
 #monthly transmit
 elif [ "$MON_DAI" = "M" ] && [ "$REC_TRA" = "T" ]
 then
-    echo $monthlyTransmitting displayUnits $monthlyIncomingGrade 
+    echo $monthlyTransmitting `displayUnits $monthlyIncomingGrade `
     exit 0
 else
     echo "The acceptable arguments for -M is M or D and -R is R or T"
