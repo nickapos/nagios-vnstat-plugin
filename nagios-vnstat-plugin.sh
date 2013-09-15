@@ -1,6 +1,6 @@
 #~/bin/bash
 
-#argument order -MD monthly/daily -RT receive/transmit 
+#argument order -M monthly/daily -R receive/transmit 
 monthlyIncoming=`vnstat |grep estimated|awk  '{print $2}'|head -1`
 monthlyIncomingGrade=`vnstat |grep estimated|awk  '{print $3}'|head -1`
 echo "monthly average incoming " $monthlyIncoming $monthlyIncomingGrade
@@ -23,20 +23,28 @@ echo "daily transmitting averate " $dailyTransmitting $dailyTransmittingGrade
 MON_DAI=
 REC_TRA=
 
-while getopts “MD:RT:” OPTION
+while getopts M:R: OPTION
 do 
     case $OPTION in 
-        MD) 
+        M) 
             MON_DAI=$OPTARG 
             ;; 
-        RD) 
+        R) 
             REC_TRA=$OPTARG 
             ;; 
     esac 
 done 
 
+echo "Flags MONDAI" $MON_DAI " REC_TRA" $REC_TRA 
+
 if [[ -z $MON_DAI ]] || [[ -z $REC_TRA ]]
 then 
-    echo "Please provide arguments for both -MD and -RD options"
+    echo "Please provide arguments for both -M and -R options"
     exit 1 
+
+elif [ "$MON_DAI" = "M" ]|| [ "$MON_DAI" = "D" ] && [ "$REC_TRA" = "R" ] ||
+    [ "$REC_TRA" = "T" ]
+then
+    echo "Flags MONDAI" $MON_DAI " REC_TRA" $REC_TRA 
+
 fi
